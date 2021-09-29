@@ -3,7 +3,7 @@
 
 # -S <path-to-source>          = Explicitly specify a source directory.
 # -B <path-to-build>           = Explicitly specify a build directory.
-cmake -S . -B build
+cmake -DCMAKE_CXX_COMPILER=clang++ -S . -B build
 
 # --build <dir>                = Build a CMake-generated project binary tree.
 cmake --build build

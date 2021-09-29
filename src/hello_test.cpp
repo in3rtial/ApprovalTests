@@ -2,6 +2,7 @@
 
 #define APPROVALS_GOOGLETEST
 #include <ApprovalTests.hpp>
+#include <cmath>
 
 // Demonstrate some basic assertions.
 TEST(HelloTest, BasicAssertions) {
@@ -13,4 +14,14 @@ TEST(HelloTest, BasicAssertions) {
 
 TEST(ApprovalTest, HelloWorld) {
     ApprovalTests::Approvals::verify("Hello world");
+}
+
+bool undefinedBehavior1() {
+    int a = 0;
+    int b = 0;
+    return &a < &b;
+}
+
+TEST(GTest, undefinedBehavior) {
+    EXPECT_EQ(undefinedBehavior1(), false);
 }
