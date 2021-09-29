@@ -10,11 +10,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# ApprovalTests.cpp
+FetchContent_Declare(ApprovalTests
+        GIT_REPOSITORY https://github.com/approvals/ApprovalTests.cpp.git
+        GIT_TAG master)
+
+FetchContent_MakeAvailable(ApprovalTests)
+
+
 enable_testing()
 include(GoogleTest)
 
 
 add_executable(hello_test src/hello_test.cpp)
-target_link_libraries(hello_test gtest_main)
+target_link_libraries(hello_test gtest_main  ApprovalTests::ApprovalTests)
 
 gtest_discover_tests(hello_test)
