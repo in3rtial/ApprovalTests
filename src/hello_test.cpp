@@ -1,4 +1,6 @@
 #include <gtest/gtest.h>
+
+#define APPROVALS_GOOGLETEST
 #include <ApprovalTests.hpp>
 
 // Demonstrate some basic assertions.
